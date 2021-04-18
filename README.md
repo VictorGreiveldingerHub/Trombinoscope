@@ -1,5 +1,11 @@
 # Trombinoscope
 
+## But :
+* Initier à la méthode Agile
+* Comprendre un mail client
+* Décortiquer un mail client
+
+```
 Mail Client : 
 
 Bonjour nous sommes une école qu'elle est bien, et nous voulons un outil pour faciliter les contacts entre étudiants.
@@ -9,3 +15,5 @@ L'accès au profil serait libre et gratuit.
 Dans un second temps l'outil pourrait servir à éditer les profils et promotions.
 
 Cordialement.
+```
+
