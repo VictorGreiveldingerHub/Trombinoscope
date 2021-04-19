@@ -1,0 +1,24 @@
+{
+  "name": "Trombinoscope",
+  "version": "1.0.0",
+  "description": "* Projet proposé par  [O'clock](https://oclock.io/?gclid=Cj0KCQjwse-DBhC7ARIsAI8YcWIeCHD2NahK-DhbZupFB1Y4nElaO86kQtNt-NyoB2gZE4cnTD0gHvsaAuopEALw_wcB \"Page d'accueil de O'Clock\")",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictorGreiveldingerHub/Trombinoscope.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VictorGreiveldingerHub/Trombinoscope/issues"
+  },
+  "homepage": "https://github.com/VictorGreiveldingerHub/Trombinoscope#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  }
+}
