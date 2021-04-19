@@ -23,6 +23,9 @@ router.get('/', mainController.homePage);
 // Route promotions
 router.get('/promotions', promotionsController.displayPromotions);
 
+// Route promotion/:id
+router.get('/promotion/:id', promotionsController.showStudentsInPromotion);
+
 // On définit le middleware 404 EN DERNIER
 router.use(mainController.notFound);
 

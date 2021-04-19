@@ -1,0 +1,15 @@
+<%- include('./partials/header.ejs') %>
+<% if (locals.students) {%>
+    <ul>
+        <% for (let student of students) {%>
+            <li key="<%=student.id%>">
+                <section>
+                    <h4><%=student.first_name%> <%=student.last_name%> </h4>
+                    <p>Github : <%= student.github_username %></p>
+                </section>
+            </li>
+        <% } %>
+    </ul>
+<% } %>
+
+<%- include('./partials/footer.ejs') %>
