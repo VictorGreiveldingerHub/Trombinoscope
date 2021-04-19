@@ -9,6 +9,7 @@ const router = express.Router();
 
 // Pour importer la logique de la route '/'
 const mainController = require('./controllers/mainController');
+const promotionsController = require('./controllers/promotionsController');
 
 // Ce qui revient à faire
 router.get('/', mainController.homePage);
@@ -18,6 +19,9 @@ router.get('/', mainController.homePage);
     // res.render('index');
 // });
 
+
+// Route promotions
+router.get('/promotions', promotionsController.displayPromotions);
 
 // On définit le middleware 404 EN DERNIER
 router.use(mainController.notFound);
