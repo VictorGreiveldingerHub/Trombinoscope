@@ -6,12 +6,14 @@ const port = 3000;
 const app = express();
 // Utilisation d'un router
 const router = require('./app/router');
+app.use(router);
 
+// Le système de views
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+// Définit le dossier des fichiers statiques
 app.use(express.static('public'));
-app.use(router);
 
 app.listen(port, () => {
     console.log('Server listening on port' + port);
