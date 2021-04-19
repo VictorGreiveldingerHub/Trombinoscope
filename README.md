@@ -1,9 +1,13 @@
 # Trombinoscope
 
+* Projet proposé par 
+[O'clock](https://oclock.io/?gclid=Cj0KCQjwse-DBhC7ARIsAI8YcWIeCHD2NahK-DhbZupFB1Y4nElaO86kQtNt-NyoB2gZE4cnTD0gHvsaAuopEALw_wcB "Page d'accueil de O'Clock")
+
 ## But :
-* Initier à la méthode Agile
+* Initier à la méthode Agile SCRUM (Sprint, SCRUM master etc ...)
 * Comprendre un mail client
 * Décortiquer un mail client
+* Wireframes (draw.io)
 
 ```
 Mail Client : 
@@ -17,3 +21,6 @@ Dans un second temps l'outil pourrait servir à éditer les profils et promotion
 Cordialement.
 ```
 
+### Lien vers Kanban
+
+ici : https://github.com/VictorGreiveldingerHub/Trombinoscope/projects/1
