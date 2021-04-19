@@ -18,4 +18,8 @@ router.get('/', mainController.homePage);
     // res.render('index');
 // });
 
+
+// On définit le middleware 404 EN DERNIER
+router.use(mainController.notFound);
+
 module.exports = router;
