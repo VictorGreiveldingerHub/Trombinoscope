@@ -10,6 +10,7 @@ const router = express.Router();
 // Pour importer la logique de la route '/'
 const mainController = require('./controllers/mainController');
 const promotionsController = require('./controllers/promotionsController');
+const studentsController = require('./controllers/studentsController');
 
 // Ce qui revient à faire
 router.get('/', mainController.homePage);
@@ -18,6 +19,9 @@ router.get('/', mainController.homePage);
 // router.get('/', (req, res, next) => {
     // res.render('index');
 // });
+
+// Route students
+router.get('/students', studentsController.showAllStudents);
 
 
 // Route promotions

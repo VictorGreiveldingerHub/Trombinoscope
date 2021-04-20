@@ -4,6 +4,7 @@
     <ul>
         <% for (let promo of promos) {%>
             <li key="<%=promo.id%>">
+                <img src="https://github.com/<%promo.name%>.png" alt="photo de la promotion"/>
                 <a href="/promotion/<%=promo.id%>"><h4><%=promo.name%></h4></a>
             </li>
         <% } %>

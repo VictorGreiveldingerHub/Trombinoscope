@@ -1,6 +1,7 @@
 <%- include('./partials/header.ejs') %>
 <% if (locals.goodPromo) {%>
     <h3>Liste des étudiants de la promo <%=goodPromo.name%></h3>
+<% } %>
     <ul>
         <% for (let findStudent of findStudents) {%>
             <li key="<%=findStudent.id%>">
@@ -11,6 +12,5 @@
             </li>
         <% } %>
     </ul>
-<% } %>
 
 <%- include('./partials/footer.ejs') %>
