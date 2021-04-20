@@ -4,7 +4,7 @@
     <ul>
         <% for (let promo of promos) {%>
             <li key="<%=promo.id%>">
-                <a href="/promotion/5"><h4><%=promo.name%></h4></a>
+                <a href="/promotion/<%=promo.id%>"><h4><%=promo.name%></h4></a>
             </li>
         <% } %>
     </ul>

@@ -4,7 +4,6 @@ const students = require('../../data/students.json');
 const promotionsController = {
     // Afficher la liste des promos
     displayPromotions: (req, res) => {
-        console.log(promos);
         // On affiche la view promo
         // en lui passant la liste des promotions
         res.render('promos', {
@@ -17,13 +16,15 @@ const promotionsController = {
     showStudentsInPromotion: (req, res) => {
         const idPromo = req.params.id;
 
-        const findStudents = students.filter(student => student.promo === idPromo);
+        const findStudents = students.filter(student => student.promo == idPromo);
 
-        if (findStudents){
+        const goodPromo = promos.find(promo => promo.id == idPromo)
+        if (goodPromo){
             res.render('students', {
-                students,
+                findStudents,
+                goodPromo,
             });
-        }
+        };
     },
 };
 

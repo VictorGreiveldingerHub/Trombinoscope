@@ -1,11 +1,12 @@
 <%- include('./partials/header.ejs') %>
-<% if (locals.students) {%>
+<% if (locals.goodPromo) {%>
+    <h3>Liste des étudiants de la promo <%=goodPromo.name%></h3>
     <ul>
-        <% for (let student of students) {%>
-            <li key="<%=student.id%>">
+        <% for (let findStudent of findStudents) {%>
+            <li key="<%=findStudent.id%>">
                 <section>
-                    <h4><%=student.first_name%> <%=student.last_name%> </h4>
-                    <p>Github : <%= student.github_username %></p>
+                    <h4><%=findStudent.first_name%> <%=findStudent.last_name%> </h4>
+                    <p>Github : <%= findStudent.github_username %></p>
                 </section>
             </li>
         <% } %>
