@@ -6,8 +6,7 @@
         <% for (let findStudent of findStudents) {%>
             <li key="<%=findStudent.id%>">
                 <section>
-                    <h4><%=findStudent.first_name%> <%=findStudent.last_name%> </h4>
-                    <p>Github : <%= findStudent.github_username %></p>
+                    <h4><%=findStudent.first_name + ' ' +findStudent.last_name%> </h4>
                 </section>
             </li>
         <% } %>

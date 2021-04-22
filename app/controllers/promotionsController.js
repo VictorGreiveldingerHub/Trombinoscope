@@ -13,7 +13,7 @@ const promotionsController = {
         });
     },
 
-    showStudentsInPromotion: (req, res) => {
+    showStudentsInPromotion: (req, res, next) => {
         const idPromo = req.params.id;
 
         const findStudents = students.filter(student => student.promo == idPromo);
@@ -24,6 +24,10 @@ const promotionsController = {
                 findStudents,
                 goodPromo,
             });
+        } else {
+            // Pour passer au middleware suivant, càd notFound
+            // Les autres middlewares ne captureront pas ce next() car il ne correspond pas à leur route
+            next();
         };
     },
 };

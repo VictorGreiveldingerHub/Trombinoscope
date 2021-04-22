@@ -18,12 +18,13 @@ const app = express();
 const router = require('./app/router');
 app.use(router);
 
+// Définit le dossier des fichiers statiques
+app.use(express.static('public'));
+
 // Le système de views
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-// Définit le dossier des fichiers statiques
-app.use(express.static('public'));
 
 app.listen(PORT, () => {
     console.log('Server listening on port ' + PORT);
