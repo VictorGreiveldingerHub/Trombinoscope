@@ -6,6 +6,7 @@
         <% for (let findStudent of findStudents) {%>
             <li key="<%=findStudent.id%>">
                 <section>
+                    <img src="https://github.com/O-clock<%findStudent.first_name + ' ' +findStudent.last_name %>.png" alt="photo de la promotion"/>
                     <h4><%=findStudent.first_name + ' ' +findStudent.last_name%> </h4>
                 </section>
             </li>
