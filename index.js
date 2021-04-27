@@ -11,24 +11,27 @@ const PORT = process.env.PORT || 3000;
     //} else {
         //     PORT = 3000;
         // }
-        
-        
+
 // Instance de serveur express
 const app = express();
-// Utilisation d'un router
-const router = require('./app/router');
-app.use(router);
-
-
-// Définit le dossier des fichiers statiques
-app.use(express.static('public'));
 
 // Le système de views
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+// Définit le dossier des fichiers statiques
+app.use(express.static('public'));
+
 // Pour récupérer les données dans le body, pour un POST !!!
-app.use(express.urlencoded({extended: true}));
+app.use( express.urlencoded({extended: true}) );
+
+// Utilisation d'un router
+const router = require('./app/router');
+app.use(router);
+
+
+
+
 
 app.listen(PORT, () => {
     console.log('Server listening on port ' + PORT);
