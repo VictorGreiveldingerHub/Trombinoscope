@@ -36,6 +36,11 @@ router.get('/admin/addStudent', adminController.showAddStudentForm);
 // Route pour gestionnaire d'ajout
 router.post('/admin/addStudent', adminController.addStudent);
 
+// Syntaxe alternative pour éviter de se répéter 
+// router.route('/admin/addStudent')
+//     .get(adminController.showAddStudentForm)
+//     .post(adminController.addStudent);
+
 // On définit le middleware 404 EN DERNIER
 router.use(mainController.notFound);
 

@@ -19,28 +19,43 @@ const dataMapper = {
     },
 
     getStudentsFromPromotion: (idPromo, callback) => {
-        const query = `SELECT * FROM "student" WHERE "promo_id"=${idPromo}`;
-        client.query(query, callback);
+        // Pour éviter les attaques par injection SQL, on ne met pas ${idPromo} dans la requete
+        // On prépare avec $1 et un tableau les informations qui vont être intégrées
+        // const query = `SELECT * FROM "student" WHERE "promo_id"=${idPromo}`;
+        const query = `SELECT * FROM "student" WHERE "promo_id"=$1`;
+        const values = [idPromo];
+        // Et on le passe en paramètre 
+        client.query(query, values, callback);
     },
 
     getPromo: (idPromo, callback) => {
-        const query = `SELECT * FROM "promo" WHERE "id"=${idPromo}`;
-        client.query(query, callback);
+        // Idem
+        const query = `SELECT * FROM "promo" WHERE "id"=$1`;
+        const values = [idPromo];
+        client.query(query, values, callback);
     },
 
     addStudent: (studentInfo, callback) => {
+        const {first_name, last_name, github_username, promo} = studentInfo;
+        // const query = `INSERT INTO "student" (
+        //     "first_name",
+        //     "last_name",
+        //     "github_username",
+        //     "promo_id"
+        // ) VALUES (
+        //     '${first_name}',
+        //     '${last_name}',
+        //     '${github_username}',
+        //     '${promo}'
+        // )`;
         const query = `INSERT INTO "student" (
             "first_name",
             "last_name",
             "github_username",
             "promo_id"
-        ) VALUES (
-            ${studentInfo.firstName},
-            ${studentInfo.lastName},
-            ${studentInfo.githubUsername},
-            ${studentInfo.promoId}
-        )`;
-        client.query(query, callback);
+        ) VALUES ($1, $2, $3, $4)`;
+        const values = [first_name, last_name, github_username, promo];
+        client.query(query, values, callback);
     },
 };
 

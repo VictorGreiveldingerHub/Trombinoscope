@@ -19,16 +19,16 @@ const app = express();
 const router = require('./app/router');
 app.use(router);
 
-// Pour récupérer les données dans le body, pour un POST !!!
-app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-        
+
 // Définit le dossier des fichiers statiques
 app.use(express.static('public'));
-        
+
 // Le système de views
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+// Pour récupérer les données dans le body, pour un POST !!!
+app.use(express.urlencoded({extended: true}));
 
 app.listen(PORT, () => {
     console.log('Server listening on port ' + PORT);

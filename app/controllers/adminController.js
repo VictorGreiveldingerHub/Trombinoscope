@@ -16,19 +16,22 @@ const adminController = {
     },
 
     addStudent: (req, res) => {
-        const studentInfo = {
-            firstname,
-            lastname,
-            githubUsername,
-            promoId
+        // Grâce au urlencoded les infos du formulaire sont dans req.body
+        // Première chose à faire : NTUI !!!
+        // Never TRust Users Input
+        // On vérifie donc que les données sont cohérentes
+        // y'a t'il un prénom ? un last_name etc ...
+        if (!req.body.first_name || !req.body.last_name || !req.body.github_username || !req.body.promo) {
+            return res.redirect('/admin/addStudent'); // Pour éviter le else ==> return
         };
-        console.log('Info student :',studentInfo)
-        dataMapper.addStudent(studentInfo, (error, data) => {
+        dataMapper.addStudent(req.body, (error, data) => {
             if (error) {
                 console.trace(error);
+                console.log(req.body);
                 res.status(500).send(error);
             } else {
-                res.redirect(`/promotion/${promoId}`).send(studentInfo);
+                console.log(data);
+                res.redirect('/promotion/'+ req.body.promo);
             };
         });
     },
