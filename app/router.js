@@ -11,6 +11,7 @@ const router = express.Router();
 const mainController = require('./controllers/mainController');
 const promotionsController = require('./controllers/promotionsController');
 const studentsController = require('./controllers/studentsController');
+const adminController = require('./controllers/adminController');
 
 // Ce qui revient à faire
 router.get('/', mainController.homePage);
@@ -23,12 +24,17 @@ router.get('/', mainController.homePage);
 // Route students
 router.get('/students', studentsController.showAllStudents);
 
-
 // Route promotions
 router.get('/promotions', promotionsController.displayPromotions);
 
 // Route promotion/:id
 router.get('/promotion/:id', promotionsController.showStudentsInPromotion);
+
+// Route pour ajouter un étudiant
+router.get('/admin/addStudent', adminController.showAddStudentForm);
+
+// Route pour gestionnaire d'ajout
+router.post('/admin/addStudent', adminController.addStudent);
 
 // On définit le middleware 404 EN DERNIER
 router.use(mainController.notFound);

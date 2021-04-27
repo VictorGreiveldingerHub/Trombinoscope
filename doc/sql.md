@@ -20,3 +20,20 @@ Bonus
 Sur le même principe, modifie la méthode showStudentsInPromotion.
 
 Quand tu es sur de toi, supprime les fichiers json du dossier data !
+
+
+# Challenge SO4E03
+Écrire (dans le même fichier que la veille), les requêtes SQL pour :
+Insérer un nouvel étudiant dans la table correspondante.
+INSERT INTO "student" VALUES
+    ('48484', 'Jean', 'René', 'jeanRené', '135');
+
+Insérer une nouvelle promo dans la table correspondante.
+INSERT INTO "promotion" VALUES
+    ('48484', 'Prométhé', 'https://github.com/O-clock-Prométhé');
+
+Modifier le prénom d'un étudiant.
+UPDATE "student" SET "first_name" = 'Jeannot' WHERE "id" = '42';
+
+Supprimer un étudiant selon son id.
+DELETE FROM "student" WHERE "id" = 42; 
