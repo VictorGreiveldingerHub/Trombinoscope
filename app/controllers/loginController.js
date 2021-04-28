@@ -25,7 +25,12 @@ const loginController = {
         // Aujourd'hui on laisse tout le monde entrer
         // je vais donc DIRE ("répondre") au navigateur "enregistre cette info dans un cookie"
         // pour faire ça, on utilise la méthode "cookie" de res
-        res.cookie('username', username);
+        // res.cookie('username', username);
+
+        // EDIT : on veut utiliser express-session au final
+        // grace au MDW on peut directement utiliser l'objet req.session
+        // On peut l'utiliser en lecture et en ecriture 
+        req.session.username = username;
 
         // maintenant que l'info est dans un cookie, je peux rediriger vers '/'
         res.redirect('/');

@@ -2,8 +2,9 @@
 const express = require('express');
 
 // Utilisation de cookie-parser, après npm cookie-parser
-const cookieParser = require('cookie-parser'); // MDW pour s'occuper des cookies
-
+// const cookieParser = require('cookie-parser'); // MDW pour s'occuper des cookies
+// EDIT ==> express-session
+const session = require('express-session');
 
 // Initialisation d'un port ==> nouvelle méthode avec .env / dotenv
 require('dotenv').config();
@@ -18,7 +19,25 @@ const app = express();
 
 
 // On passe le MDW cookies à l'application
-app.use(cookieParser());
+// app.use(cookieParser());
+
+// EDIT : finalement on va pas utiliser les cookies directement, on va se servir des sessions 
+// avec npm install express-session
+
+app.use(session({
+    secret: 'keyboard cat', // la graine (seed) utilisée pour générer les IDs de session
+    // tout ce qui compte c'est de mettre une chaine non vide, et de ne pas trop la changer
+    // parce que a chaque fois cela invalide les sessions d'avant
+
+    resave: true, // On dit au MDW "sauve la session à chaque requete", Sans cette option
+    // on est obligé de faire `req.session.save()` à chaque fois (=> callbacks etc)
+
+    saveUninitialized: true, // indique au MDW de sauver les sessions, même vide.
+    cookie: { // Les options du cookie
+        secure: false, // pour activer les cookies en http (si true => ne marche qu'en httpS )
+        maxAge: 10000
+    }
+}));
 
 
 // Le système de views
