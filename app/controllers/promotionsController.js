@@ -15,7 +15,7 @@
 // Plutot que de créer une nouvelle connexion à chaque fois qu'on en à besoin, on se sert de notre
 // client partagé qu'on a juste à require.
 
-// On utilise p^lus database ici mais dans dataMapper, qui lui require 
+// On utilise plus database ici mais dans dataMapper, qui lui require 
 // const client = require('../database');
 const dataMapper = require('../dataMapper');
 

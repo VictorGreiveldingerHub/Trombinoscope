@@ -12,6 +12,7 @@ const mainController = require('./controllers/mainController');
 const promotionsController = require('./controllers/promotionsController');
 const studentsController = require('./controllers/studentsController');
 const adminController = require('./controllers/adminController');
+const loginController = require('./controllers/loginController');
 
 // Ce qui revient à faire
 router.get('/', mainController.homePage);
@@ -40,6 +41,10 @@ router.post('/admin/addStudent', adminController.addStudent);
 // router.route('/admin/addStudent')
 //     .get(adminController.showAddStudentForm)
 //     .post(adminController.addStudent);
+
+// Route login 
+router.get('/login', loginController.showLoginForm);
+router.post('/login', loginController.handleLoginForm);
 
 // On définit le middleware 404 EN DERNIER
 router.use(mainController.notFound);

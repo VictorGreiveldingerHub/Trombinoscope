@@ -2,10 +2,34 @@
 const mainController = {
     homePage: (req, res) => {
         // SESSIONS ET COOKIES
+        // Afficher les cookies (dans la console nav => document.cookie = "username=truc")
+        // Tant que nous ne fermerons pas le nav, on aura en réponse au console.log => username=truc
+        // PERSISTANCE DE DONNEES STOCKES DANS LE NAV !!
         console.log(req.headers.cookie);
 
+        // Premier constat, req.headers.cookie est une chaine de caractère, c'est très difficile à
+        // manipuler => on va utiliser un middleware pour transformer ça ! === cookie-parser
+        console.log(req.cookies); // maintenant on a bien un objet !
 
-        res.render('index');
+        /**
+         * Premiere version :
+         * on va tester si "username" est présent dans les cookie
+         * 
+         * si c'est le cas, on envoie la view index (page d'acceuil)
+         * on appelle la méthode render de la réponse, en lui passant le nom de l'utilisateur connecté
+         * 
+         * sinon on redirige vers l'url de connexion (/login)
+        */
+
+        if (req.cookies.username) {
+            res.render('index', {
+                username: req.cookies.username,
+            });
+        } else {
+            res.redirect('/login');
+        }
+
+        // res.render('index');
     },
     
     notFound: (req, res) => {
